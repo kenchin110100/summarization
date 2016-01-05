@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+  {{ message }}
+  <hr>
+  <form method="post" action="">
+    {{ form.errors.input_text }}
+    <label>{{ form.input_text.label }} {{ form.input_text }}</label><br>
+
+    {{ form.errors.gender }}
+    <label>{{ form.gender.label }} {{ form.gender }}</label><br>
+
+    {{ form.errors.memo }}
+    <label style="vertical-align: top;">{{ form.memo.label }} {{ form.memo }}</label><br>
+
+    <input type="submit" value="送信">
+  </form>
+{% endblock %}

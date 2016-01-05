@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}文書間特徴抽出アプリ{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+  <h3 class="page-header">文書特徴抽出アプリVer.1.0</h3>
+  <h4>文書を入力してください</h4>
+  <form method="post" action="">
+    <table class ="table table-striped table-boardered">
+	  <thead>
+	    <tr>
+	      <th>変数名</th>
+		  <th>値</th>
+		</tr>
+      </thead>
+	  <tbody>
+	    <tr>
+		  <td>{{ form.K.label }}</td>
+		  <td>{{ form.K }}{{ form.errors.K }}</td>
+	    </tr>
+	    <tr>
+		  <td>{{ form.lamda.label }}</td>
+		  <td>{{ form.lamda }}{{ form.errors.lamda }}</td>
+	    </tr>
+	    <tr>
+		  <td>{{ form.epsilon.label }}</td>
+		  <td>{{ form.epsilon }}{{ form.errors.epsilon }}</td>
+	    </tr>
+	    <tr>
+		  <td>{{ form.gamma.label }}</td>
+		  <td>{{ form.gamma }}{{ form.errors.gamma }}</td>
+	    </tr>
+	    <tr>
+		  <td>{{ form.limit_sentence_num.label }}</td>
+		  <td>{{ form.limit_sentence_num }}{{ form.errors.limit_sentence_num }}</td>
+	    </tr>
+	    <tr>
+		  <td>{{ form.input_text1.label }}</td>
+		  <td>{{ form.input_text1 }}{{ form.errors.input_text1 }}</td>
+	    </tr>
+	    <tr>
+		  <td>{{ form.input_text2.label }}</td>
+		  <td>{{ form.input_text2 }}{{ form.errors.input_text2 }}</td>
+	    </tr>
+	  </tbody>
+	</table>
+  <input type="submit" value="送信">
+  </form>
+
+  {% if list_sentence_V.count > 0 %}
+  <div>
+	<h4>原文</h4>
+    <table class ="table table-striped table-boardered">
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+		  <th>文章</th>
+		</tr>
+      </thead>
+	  <tbody>
+	    {% for row in list_sentence_V %}
+	    <tr>
+		  <td>{{ forloop.counter }}</td>
+		  <td>{{ row }}</td>
+	    </tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+  </div>
+  {% endif %}
+
+  {% if list_num_sentence_S.count > 0 %}
+    {% for num_sentence in list_num_sentence_S %}
+    <div>
+	<h4>{{ message }}</h4>
+      <table class ="table table-striped table-boardered">
+	    <thead>
+	      <tr>
+	        <th>ID</th>
+		    <th>文章</th>
+		  </tr>
+        </thead>
+	    <tbody>
+	      {% for i, row in num_sentence %}
+	      <tr>
+	        <td>{{ i }}</td>
+		    <td>{{ row }}</td>
+	      </tr>
+		  {% endfor %}
+	    </tbody>
+	  </table>
+    </div>
+	{% endfor %}
+  {% endif %}
+
+{% endblock %}
