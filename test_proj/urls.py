@@ -17,13 +17,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-]
-
-urlpatterns = [
+    url(r'^$', views.main, name='main'),
     url(r'^summarization/', include('summarization.urls', namespace='summarization')),
+    url(r'^questionnaire/', include('questionnaire.urls', namespace='questionnaire')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

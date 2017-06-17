@@ -1,0 +1,1113 @@
+{% extends "base.html" %}
+
+{% block title %}レビュー{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	  margin-top: 8px;
+}
+</style>
+<style type="text/css">
+  .box_srcollbar {
+    overflow:auto;
+    width:auto;
+    height:400px;
+    padding:5px;
+    border:1px solid #000;
+    background-color:#F9F9F9;
+    color:#000;
+    font-size:12px;
+  }
+  .box_title{
+    border:1px solid #000;
+    padding:5px;
+    width:auto;
+    font-weight:bold;
+    font-size:14px;
+    background-color:#000;
+    color:#fff;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+  <h3 class="page-header">REVIEW</h3>
+  <div class="container">
+	<div>各タイプの表示方法を比較しながら、ホテルA、ホテルBのどちらに泊まりたいか考えてください。</div>
+	<div><a href="http://www.orenotame.com/questionnaire/index{{random_index}}">アンケートページに移動する&gt;&gt;</a></div>
+	</div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">タイプ1</a></li>
+      <li><a href="#tab2" data-toggle="tab">タイプ2</a></li>
+      <li><a href="#tab3" data-toggle="tab">タイプ3</a></li>
+      <li><a href="#tab4" data-toggle="tab">タイプ4</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="tab1" class="tab-pane active">
+		<div row>
+		  <div class="col-xs-6"><h1>{{evaluation1.hotel_name}}</h1></div>
+		  <div class="col-xs-6"><h1>{{evaluation2.hotel_name}}</h1></div>
+		</div>
+		<div row>
+		  <div class="col-xs-6">
+		  <div class="col-xs-4">
+			<h3>総合評価: {{evaluation1.eva7 }}点</h3>
+			<img src="/static/img/star/star{{evaluation1.img_eva7}}.png" class="img-responsive"/>
+			<h4>アンケート件数: {{ review1|length }}件</h4>
+	      </div>
+		  <div class="col-xs-3">
+		    <table class="table">
+	          <thead>
+	            <tr>
+		          <th>評価</th>
+                  <th></th>
+                </tr>
+  	          </thead>
+          	  <tbody>
+				<tr>
+				  <th>5点</th>
+				  <th>{{ num1_5 }}件</th>
+				</tr>
+				<tr>
+			      <th>4点</th>
+				  <th>{{ num1_4 }}件</th>
+				</tr>
+				<tr>
+			      <th>3点</th>
+				  <th>{{ num1_3 }}件</th>
+				</tr>
+				<tr>
+				  <th>2点</th>
+				  <th>{{ num1_2 }}件</th>
+				</tr>
+				<tr>
+			      <th>1点</th>
+				  <th>{{ num1_1 }}件</th>
+				</tr>
+			  </tbody>
+			</table>
+	      </div>
+		  <div class="col-xs-5">
+			<table class="table">
+			  <thead>
+		   	    <tr>
+				  <th class="col-xs-4">項目別</th>
+				  <th class="col-xs-4"></th>
+			      <th class="col-xs-4"></th>
+				</tr>
+		      </thead>
+		      <tbody>
+				<tr>
+				  <th class="col-xs-4">立地</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation1.img_eva1}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation1.eva1 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">部屋</th>
+			      <th class="col-xs-4"><img src="/static/img/star/star{{evaluation1.img_eva2}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation1.eva2 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">食事</th>
+			      <th class="col-xs-4"><img src="/static/img/star/star{{evaluation1.img_eva3}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation1.eva3 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">風呂</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation1.img_eva4}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation1.eva4 }}</th>
+				</tr>
+				<tr>
+			      <th class="col-xs-4">サービス</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation1.img_eva5}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation1.eva5 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">設備</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation1.img_eva6}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation1.eva6 }}</th>
+				</tr>
+		      </tbody>
+			</table>
+	      </div>
+		  </div>
+		  <div class="col-xs-6">
+			  <div class="col-xs-4">
+			<h3>総合評価: {{evaluation2.eva7 }}点</h3>
+			<img src="/static/img/star/star{{evaluation2.img_eva7}}.png" class="img-responsive"/>
+			<h4>アンケート件数: {{ review2|length }}件</h4>
+	      </div>
+          <div class="col-xs-3">
+		    <table class="table">
+	          <thead>
+	            <tr>
+		          <th>評価</th>
+                  <th></th>
+                </tr>
+  	          </thead>
+          	  <tbody>
+				<tr>
+				  <th>5点</th>
+				  <th>{{ num2_5 }}件</th>
+				</tr>
+				<tr>
+			      <th>4点</th>
+				  <th>{{ num2_4 }}件</th>
+				</tr>
+				<tr>
+			      <th>3点</th>
+				  <th>{{ num2_3 }}件</th>
+				</tr>
+				<tr>
+				  <th>2点</th>
+				  <th>{{ num2_2 }}件</th>
+				</tr>
+				<tr>
+			      <th>1点</th>
+				  <th>{{ num2_1 }}件</th>
+				</tr>
+			  </tbody>
+			</table>
+	      </div>
+		  <div class="col-xs-5">
+			<table class="table">
+			  <thead>
+		   	    <tr>
+					<th class="col-xs-4">項目別</th>
+				  <th class="col-xs-4"></th>
+			      <th class="col-xs-4"></th>
+				</tr>
+		      </thead>
+		      <tbody>
+				<tr>
+				  <th class="col-xs-4">立地</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation2.img_eva1}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation2.eva1 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">部屋</th>
+			      <th class="col-xs-4"><img src="/static/img/star/star{{evaluation2.img_eva2}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation2.eva2 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">食事</th>
+			      <th class="col-xs-4"><img src="/static/img/star/star{{evaluation2.img_eva3}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation2.eva3 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">風呂</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation2.img_eva4}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation2.eva4 }}</th>
+				</tr>
+				<tr>
+			      <th class="col-xs-4">サービス</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation2.img_eva5}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation2.eva5 }}</th>
+				</tr>
+				<tr>
+				  <th class="col-xs-4">設備</th>
+				  <th class="col-xs-4"><img src="/static/img/star/star{{evaluation2.img_eva6}}.png" class="img-responsive"/></th>
+				  <th class="col-xs-4">{{ evaluation2.eva6 }}</th>
+				</tr>
+		      </tbody>
+			</table>
+	      </div>
+		</div>
+		</div>
+	      <div class="row">
+		    <div class="col-xs-6">
+	          <div class="box_title">すべてのレビューを見る</div>
+	            <div class="box_srcollbar">
+		          {% for row in review1 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				        <br>
+				        <label>総合評価:{{row.eva7}}点</label>
+						<br>
+						<label><img src="/static/img/star/star{{row.eva7}}.png" width=100/></label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+          <div class="col-xs-6">
+	          <div class="box_title">すべてのレビューを見る</div>
+	            <div class="box_srcollbar">
+		          {% for row in review2 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				        <br>
+				        <label>総合評価:{{row.eva7}}点</label>
+						<br>
+						<label><img src="/static/img/star/star{{row.eva7}}.png" width=100/></label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+	      </div>
+		  </div>
+	      <div id="tab2" class="tab-pane">
+		  <div class="row">
+		    <div class="col-xs-6">
+		      <div class="col-xs-12"><h1>{{evaluation1.hotel_name}}</h1></div>
+		    </div>
+		    <div class="col-xs-6">
+		      <div class="col-xs-12"><h1>{{evaluation2.hotel_name}}</h1></div>
+		    </div>
+	    </div>
+		<div class="row">
+		<div class="col-xs-6">
+		  <h3>{{evaluation1.hotel_name}}の口コミの要約</h3>
+	  	  <table class="table">
+		    <thead>
+			  <tr>
+			    <th>番号</th>
+				<th>コメント</th>
+				<th>投稿者</th>
+				<th>投稿日時</th>
+			  </tr>
+			</thead>
+            <tbody>
+			{% for row in sum1_SM %}
+			  <tr>
+			    <th>{{row.doc_id}}</th>
+			    <td>{{row.sentence}}</td>
+			    <td>{{row.user_name}}</td>
+			    <td>{{row.date_time}}</td>
+			  </tr>
+			{% endfor %}
+			</tbody>
+		  </table>
+		</div>
+        <div class="col-xs-6">
+		  <h3>{{evaluation2.hotel_name}}の口コミの要約</h3>
+	  	  <table class="table">
+		    <thead>
+			  <tr>
+			    <th>番号</th>
+				<th>コメント</th>
+				<th>投稿者</th>
+				<th>投稿日時</th>
+			  </tr>
+			</thead>
+            <tbody>
+			{% for row in sum2_SM %}
+			  <tr>
+			    <th>{{row.doc_id}}</th>
+			    <td>{{row.sentence}}</td>
+			    <td>{{row.user_name}}</td>
+			    <td>{{row.date_time}}</td>
+			  </tr>
+			{% endfor %}
+			</tbody>
+		  </table>
+		</div>
+		</div>
+		<div class="row">
+		  <div class="col-xs-6">
+	        <div class="box_title">すべてのレビューを見る</div>
+	            <div class="box_srcollbar">
+		          {% for row in review1 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+          <div class="col-xs-6">
+	        <div class="box_title">すべてのレビューを見る</div>
+	            <div class="box_srcollbar">
+		          {% for row in review2 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+	      </div>
+		</div>
+	    <div id="tab3" class="tab-pane">
+		  <div class="row">
+		    <div class="col-xs-6">
+		      <h1>{{evaluation1.hotel_name}}</h1>
+		    </div>
+		    <div class="col-xs-6">
+		      <h1>{{evaluation2.hotel_name}}</h1>
+		    </div>
+	      </div>
+		<div class="row">
+		  <div class="col-xs-6">
+		  <h3>{{evaluation1.hotel_name}}の口コミの要約</h3>
+	  	    <table class="table">
+		      <thead>
+			    <tr>
+			      <th>番号</th>
+			  	  <th>コメント</th>
+				  <th>投稿者</th>
+				  <th>投稿日時</th>
+			    </tr>
+			  </thead>
+            <tbody>
+			{% for row in sum1_PGSM %}
+			  <tr>
+			    <th>{{row.doc_id}}</th>
+			    <td>{{row.sentence}}</td>
+			    <td>{{row.user_name}}</td>
+			    <td>{{row.date_time}}</td>
+			  </tr>
+			{% endfor %}
+			</tbody>
+		  </table>
+		</div>
+        <div class="col-xs-6">
+		  <h3>{{evaluation2.hotel_name}}の口コミの要約</h3>
+	  	  <table class="table">
+		    <thead>
+			  <tr>
+			    <th>番号</th>
+	            <th>コメント</th>
+		        <th>投稿者</th>
+	            <th>投稿日時</th>
+			  </tr>
+			</thead>
+          <tbody>
+			{% for row in sum2_PGSM %}
+			  <tr>
+			    <th>{{row.doc_id}}</th>
+			    <td>{{row.sentence}}</td>
+			    <td>{{row.user_name}}</td>
+			    <td>{{row.date_time}}</td>
+			  </tr>
+			{% endfor %}
+			</tbody>
+		  </table>
+		</div>
+		</div>
+	    <div class="row">
+		  <div class="col-xs-6">
+	        <div class="box_title">すべてのレビューを見る</div>
+	          <div class="box_srcollbar">
+		          {% for row in review1 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+           <div class="col-xs-6">
+	        <div class="box_title">すべてのレビューを見る</div>
+	          <div class="box_srcollbar">
+		          {% for row in review2 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+        </div>
+		</div>
+		<div id="tab4" class="tab-pane">
+          <div class="row">
+			<div class="col-xs-12">
+			  <h1>口コミの分類とその割合</h1>
+		      <table class="table">
+			    <thead>
+			      <tr>
+					<th>分類</th>
+				    <th>頻出単語</th>
+				    <th>{{evaluation1.hotel_name}}(文数)(割合)</th>
+				    <th>{{evaluation2.hotel_name}}(文数)(割合)</th>
+			      </tr>
+		        </thead>
+			    <tbody>
+				  <tr>
+				    <th>トピック1</th>
+					<td>
+				      <span class="label label-primary">{{topic_name1.word1}}</span>
+				      <span class="label label-primary">{{topic_name1.word2}}</span>
+				      <span class="label label-primary">{{topic_name1.word3}}</span>
+				      <span class="label label-primary">{{topic_name1.word4}}</span>
+				      <span class="label label-primary">{{topic_name1.word5}}</span>
+				    </td>
+					<td><span class="glyphicon glyphicon-thumbs-up color-yellow">1位</span>477 (31.1%)</td>
+					<td>258 (11.7%)</td>
+				  </tr>
+				  <tr>
+				    <th>トピック2</th>
+					<td>
+				      <span class="label label-primary">{{topic_name2.word1}}</span>
+				      <span class="label label-primary">{{topic_name2.word2}}</span>
+				      <span class="label label-primary">{{topic_name2.word3}}</span>
+				      <span class="label label-primary">{{topic_name2.word4}}</span>
+				      <span class="label label-primary">{{topic_name2.word5}}</span>
+				    </td>
+					<td><span class="glyphicon glyphicon-thumbs-down color-blue">最下位</span>18 (1.25%)</td>
+					<td>65 (3.0%)</td>
+				  </tr>
+				  <tr>
+				    <th>トピック3</th>
+					<td>
+				      <span class="label label-primary">{{topic_name3.word1}}</span>
+				      <span class="label label-primary">{{topic_name3.word2}}</span>
+				      <span class="label label-primary">{{topic_name3.word3}}</span>
+				      <span class="label label-primary">{{topic_name3.word4}}</span>
+				      <span class="label label-primary">{{topic_name3.word5}}</span>
+				    </td>
+					<td>142 (9.2%)</td>
+					<td>222 (10.1%)</td>
+				  </tr>
+				  <tr>
+				    <th>トピック4</th>
+					<td>
+				      <span class="label label-primary">{{topic_name4.word1}}</span>
+				      <span class="label label-primary">{{topic_name4.word2}}</span>
+				      <span class="label label-primary">{{topic_name4.word3}}</span>
+				      <span class="label label-primary">{{topic_name4.word4}}</span>
+				      <span class="label label-primary">{{topic_name4.word5}}</span>
+				    </td>
+					<td>262 (17.1%)</td>
+					<td>555 (25.2%)</td>
+				  </tr>
+				  <tr>
+				    <th>トピック5</th>
+					<td>
+				      <span class="label label-primary">{{topic_name5.word1}}</span>
+				      <span class="label label-primary">{{topic_name5.word2}}</span>
+				      <span class="label label-primary">{{topic_name5.word3}}</span>
+				      <span class="label label-primary">{{topic_name5.word4}}</span>
+				      <span class="label label-primary">{{topic_name5.word5}}</span>
+				    </td>
+					<td>323 (21.0%)</td>
+					<td>401 (18.2%)</td>
+				  </tr>
+				  <tr>
+				    <th>トピック6</th>
+					<td>
+				      <span class="label label-primary">{{topic_name6.word1}}</span>
+				      <span class="label label-primary">{{topic_name6.word2}}</span>
+				      <span class="label label-primary">{{topic_name6.word3}}</span>
+				      <span class="label label-primary">{{topic_name6.word4}}</span>
+				      <span class="label label-primary">{{topic_name6.word5}}</span>
+				    </td>
+					<td>263 (17.1%)</td>
+					<td><span class="glyphicon glyphicon-thumbs-up color-yellow">1位</span>697 (31.7%)</td>
+				  </tr>
+				  <tr>
+				    <th>トピック7</th>
+					<td>
+				      <span class="label label-primary">{{topic_name7.word1}}</span>
+				      <span class="label label-primary">{{topic_name7.word2}}</span>
+				      <span class="label label-primary">{{topic_name7.word3}}</span>
+				      <span class="label label-primary">{{topic_name7.word4}}</span>
+				      <span class="label label-primary">{{topic_name7.word5}}</span>
+				    </td>
+					<td>51 (3.3%)</td>
+					<td><span class="glyphicon glyphicon-thumbs-down color-blue">最下位</span>1 (0.05%)</td>
+				  </tr>
+				  <tr>
+				    <th>合計</th>
+					<td></td>
+					<td>1536文 (100%)</td>
+					<td>2199文 (100%)</td>
+				  </tr>
+			    </tbody>
+		      </table>
+			</div>
+		  </div>
+		<div row>
+			<div class="col-xs-6"><h1>{{evaluation1.hotel_name}}</h1></div>
+			<div class="col-xs-6"><h1>{{evaluation2.hotel_name}}</h1></div>
+		</div>
+		<div class="container-fluid">
+		  		  <div class="row">
+		    <div class="col-xs-6">
+					  <h3>{{evaluation1.hotel_name}}の口コミの要約</h3>
+			  <div class="panel panel-warning">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+					  <label>トピック1</label>
+					  <br>
+					  <span class="glyphicon glyphicon-thumbs-up">1位</span>
+					<br>
+				  <span class="label label-primary">{{topic_name1.word1}}</span>
+				  <span class="label label-primary">{{topic_name1.word2}}</span>
+				  <span class="label label-primary">{{topic_name1.word3}}</span>
+				  <span class="label label-primary">{{topic_name1.word4}}</span>
+				  <span class="label label-primary">{{topic_name1.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic1 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+		    <div class="col-xs-6">
+					  <h3>{{evaluation2.hotel_name}}の口コミの要約</h3>
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック1</label>
+					<br>
+				  <span class="label label-primary">{{topic_name1.word1}}</span>
+				  <span class="label label-primary">{{topic_name1.word2}}</span>
+				  <span class="label label-primary">{{topic_name1.word3}}</span>
+				  <span class="label label-primary">{{topic_name1.word4}}</span>
+				  <span class="label label-primary">{{topic_name1.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic1 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="row">
+		    <div class="col-xs-6">
+			  <div class="panel panel-info">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+					  <label>トピック2</label>
+					  <br>
+                    <span class="glyphicon glyphicon-thumbs-down">最下位</span>
+					<br>
+				  <span class="label label-primary">{{topic_name2.word1}}</span>
+				  <span class="label label-primary">{{topic_name2.word2}}</span>
+				  <span class="label label-primary">{{topic_name2.word3}}</span>
+				  <span class="label label-primary">{{topic_name2.word4}}</span>
+				  <span class="label label-primary">{{topic_name2.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic2 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック2</label>
+					<br>
+				  <span class="label label-primary">{{topic_name2.word1}}</span>
+				  <span class="label label-primary">{{topic_name2.word2}}</span>
+				  <span class="label label-primary">{{topic_name2.word3}}</span>
+				  <span class="label label-primary">{{topic_name2.word4}}</span>
+				  <span class="label label-primary">{{topic_name2.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic2 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="row">
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック3</label>
+					<br>
+				  <span class="label label-primary">{{topic_name3.word1}}</span>
+				  <span class="label label-primary">{{topic_name3.word2}}</span>
+				  <span class="label label-primary">{{topic_name3.word3}}</span>
+				  <span class="label label-primary">{{topic_name3.word4}}</span>
+				  <span class="label label-primary">{{topic_name3.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic3 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック3</label>
+					<br>
+				  <span class="label label-primary">{{topic_name3.word1}}</span>
+				  <span class="label label-primary">{{topic_name3.word2}}</span>
+				  <span class="label label-primary">{{topic_name3.word3}}</span>
+				  <span class="label label-primary">{{topic_name3.word4}}</span>
+				  <span class="label label-primary">{{topic_name3.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic3 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="row">
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック4</label>
+					<br>
+				  <span class="label label-primary">{{topic_name4.word1}}</span>
+				  <span class="label label-primary">{{topic_name4.word2}}</span>
+				  <span class="label label-primary">{{topic_name4.word3}}</span>
+				  <span class="label label-primary">{{topic_name4.word4}}</span>
+				  <span class="label label-primary">{{topic_name4.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic4 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+            <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック4</label>
+					<br>
+				  <span class="label label-primary">{{topic_name4.word1}}</span>
+				  <span class="label label-primary">{{topic_name4.word2}}</span>
+				  <span class="label label-primary">{{topic_name4.word3}}</span>
+				  <span class="label label-primary">{{topic_name4.word4}}</span>
+				  <span class="label label-primary">{{topic_name4.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic4 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+			</div>
+            <div class="row">
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック5</label>
+					<br>
+				  <span class="label label-primary">{{topic_name5.word1}}</span>
+				  <span class="label label-primary">{{topic_name5.word2}}</span>
+				  <span class="label label-primary">{{topic_name5.word3}}</span>
+				  <span class="label label-primary">{{topic_name5.word4}}</span>
+				  <span class="label label-primary">{{topic_name5.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic5 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+            <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック5</label>
+					<br>
+				  <span class="label label-primary">{{topic_name5.word1}}</span>
+				  <span class="label label-primary">{{topic_name5.word2}}</span>
+				  <span class="label label-primary">{{topic_name5.word3}}</span>
+				  <span class="label label-primary">{{topic_name5.word4}}</span>
+				  <span class="label label-primary">{{topic_name5.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic5 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+			</div>
+            <div class="row">
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック6</label>
+					<br>
+				  <span class="label label-primary">{{topic_name6.word1}}</span>
+				  <span class="label label-primary">{{topic_name6.word2}}</span>
+				  <span class="label label-primary">{{topic_name6.word3}}</span>
+				  <span class="label label-primary">{{topic_name6.word4}}</span>
+				  <span class="label label-primary">{{topic_name6.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic6 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+            <div class="col-xs-6">
+			  <div class="panel panel-warning">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+					  <label>トピック6</label>
+					  <br>
+                      <span class="glyphicon glyphicon-thumbs-up">1位</span>
+					<br>
+				  <span class="label label-primary">{{topic_name6.word1}}</span>
+				  <span class="label label-primary">{{topic_name6.word2}}</span>
+				  <span class="label label-primary">{{topic_name6.word3}}</span>
+				  <span class="label label-primary">{{topic_name6.word4}}</span>
+				  <span class="label label-primary">{{topic_name6.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic6 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+			</div>
+            <div class="row">
+		    <div class="col-xs-6">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+				    <label>トピック7</label>
+					<br>
+				  <span class="label label-primary">{{topic_name7.word1}}</span>
+				  <span class="label label-primary">{{topic_name7.word2}}</span>
+				  <span class="label label-primary">{{topic_name7.word3}}</span>
+				  <span class="label label-primary">{{topic_name7.word4}}</span>
+				  <span class="label label-primary">{{topic_name7.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum1_PGSM_topic7 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+            <div class="col-xs-6">
+			  <div class="panel panel-info">
+			    <div class="panel-heading">
+		          <h3 class="panel-title">
+					  <label>トピック7</label>
+					  <br>
+					  <span class="glyphicon glyphicon-thumbs-down">最下位</span>
+					<br>
+				  <span class="label label-primary">{{topic_name7.word1}}</span>
+				  <span class="label label-primary">{{topic_name7.word2}}</span>
+				  <span class="label label-primary">{{topic_name7.word3}}</span>
+				  <span class="label label-primary">{{topic_name7.word4}}</span>
+				  <span class="label label-primary">{{topic_name7.word5}}</span>
+				  </h3>
+     			</div>
+				<div class="panel-body">
+	  	          <table class="table">
+		            <thead>
+			          <tr>
+			            <th>番号</th>
+				        <th>コメント</th>
+			          </tr>
+			        </thead>
+                  <tbody>
+			      {% for row in sum2_PGSM_topic7 %}
+			        <tr>
+			          <th>{{row.doc_id}}</th>
+			          <td>{{row.sentence}}</td>
+			        </tr>
+			      {% endfor %}
+			      </tbody>
+		        </table>
+				</div>
+			  </div>
+			</div>
+			</div>
+	      <div class="row">
+		    <div class="col-xs-6">
+	          <div class="box_title">すべてのレビューを見る</div>
+	            <div class="box_srcollbar">
+		          {% for row in review1 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+		  <div class="col-xs-6">
+	          <div class="box_title">すべてのレビューを見る</div>
+	            <div class="box_srcollbar">
+		          {% for row in review2 %}
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+				      <h3 class="panel-title">
+				        <label>投稿者:{{row.user_name}}</label>
+				      </h3>
+                    </div>
+                  <div class="panel-body">
+			      {{row.review}}
+                  </div>
+			      <div class="panel-footer">
+			        <label>投稿日時:{{row.date_time}}</label>
+			      </div>
+                </div>
+		        {% endfor %}
+              </div>
+		    </div>
+	      </div>
+        </div>
+		</div>
+		</div>
+{% endblock %}

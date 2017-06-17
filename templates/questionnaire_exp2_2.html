@@ -1,0 +1,396 @@
+{% extends "base.html" %}
+
+{% block title %}アンケート2{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+  <h3 class="page-header">QUESTIONNAIRE</h3>
+  <div class="container">
+	  <div>「アンケートを送信する」ボタンがうまく表示されていない場合があります</div>
+	  <div>表示されているか確認を行い、表示されていない場合はページの再読み込みを行ってください</div>
+	  <font size="5" color="#ff0000">{{message}}</font>
+	  {{form.errors}}
+    <form class="form-horizontal" method="post" action="">
+      <div class="form-qroup">
+		<div hidden>
+		  {{form.meta1}}
+		  {{form.meta2}}
+		</div>
+		<div class="well">
+        <label>質問1: ランサーズでのユーザー名を入力してください</label>
+		  <div>{{form.q1}}</div>
+		</div>
+		<div class="row">
+		  <h3>以降はあなたの消費価値観についての質問です</h3>
+		  <div class="well">
+	        <label class = "control-label">質問2: とにかく安くて経済的なものを買う</label>
+		    <div align="center">
+		      {% for gender in form.q2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問3: 価格が品質に見合っているかどうかをよく検討してから買う</label>
+		    <div align="center">
+		      {% for gender in form.q3 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問4: 多少値段が高くても、品質のよいものを買う</label>
+		    <div align="center">
+		      {% for gender in form.q4 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問5: 名の通ったブランドやメーカーの商品であれば、そのぶん多少値段が高くてもよい</label>
+		    <div align="center">
+		      {% for gender in form.q5 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問6: いつも買うと決めているブランドがある</label>
+		    <div align="center">
+		      {% for gender in form.q6 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問7: 使いやすい（着やすい）かどうかよりも、色やデザインを重視して商品を買う</label>
+		    <div align="center">
+		      {% for gender in form.q7 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問8: テレビやパソコンなどの商品でも、色やデザインを重視して商品を買う</label>
+		    <div align="center">
+		      {% for gender in form.q8 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問9: 無名なメーカーの商品よりは、有名なメーカーの商品を買う</label>
+		    <div align="center">
+		      {% for gender in form.q9 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問10: 多少値段が高くても、利便性の高いものを買う</label>
+		    <div align="center">
+		      {% for gender in form.q10 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問11: 使っている人の評判が気になる</label>
+		    <div align="center">
+		      {% for gender in form.q11 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問12: 流行にはこだわるほうである</label>
+		    <div align="center">
+		      {% for gender in form.q12 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問13: 周りの人が持っているものを持っていないと気になる</label>
+		    <div align="center">
+		      {% for gender in form.q13 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問14: 多少値段が高くても、アフターサービスが充実している方がよい</label>
+		    <div align="center">
+		      {% for gender in form.q14 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問15: 周りの人と違う個性的なものを選ぶ</label>
+		    <div align="center">
+		      {% for gender in form.q15 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問16: 自分のライフスタイルにこだわって商品を選ぶ</label>
+		    <div align="center">
+		      {% for gender in form.q16 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問17: できるだけ長く使えるものを買う</label>
+		    <div align="center">
+		      {% for gender in form.q17 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問18: 環境保護に配慮して商品を買う</label>
+		    <div align="center">
+		      {% for gender in form.q18 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問19: 安全性に配慮して商品を買う</label>
+		    <div align="center">
+		      {% for gender in form.q19 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問20: レンタルやリースをよく利用する</label>
+		    <div align="center">
+		      {% for gender in form.q20 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問21: 中古製品やリサイクル品をよく買う</label>
+		    <div align="center">
+		      {% for gender in form.q21 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問22: 使い捨て商品をよく買う</label>
+		    <div align="center">
+		      {% for gender in form.q22 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問23: プライベートブランド（小売店が独自に販売しているブランド）をよく買う</label>
+		    <div align="center">
+		      {% for gender in form.q23 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問24: 自分のためにオーダーメイドされた商品をよく買う</label>
+		    <div align="center">
+		      {% for gender in form.q24 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問25: 商品を買う前にいろいろ情報を集めてから買う</label>
+		    <div align="center">
+		      {% for gender in form.q25 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問26: よい情報を得るためにはお金を払うのが当然である</label>
+		    <div align="center">
+		      {% for gender in form.q26 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問27: 商品や店舗に関する情報をよく人に教える方である</label>
+		    <div align="center">
+		      {% for gender in form.q27 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問28: すぐに使える現金や預貯金がないときに、クレジットカードで高額の買い物をすることがよくある</label>
+		    <div align="center">
+		      {% for gender in form.q28 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問29: 自分の好きなものは、たとえ高価でもお金を貯めて買う</label>
+		    <div align="center">
+		      {% for gender in form.q29 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問30: 同じ機能・値段であるならば、外国製品よりも日本製品を買う</label>
+		    <div align="center">
+		      {% for gender in form.q30 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問31: 有名な人がよいと言っているものを選ぶことが多い</label>
+		    <div align="center">
+		      {% for gender in form.q31 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問32: 周りの人がよいと言っているものを選ぶことが多い</label>
+		    <div align="center">
+		      {% for gender in form.q32 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問33: 探している商品が見つからない場合は、すぐに店員に聞く方である</label>
+		    <div align="center">
+		      {% for gender in form.q33 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問35: 以下のタイプの中で、新しい商品やサービスを利用する際に、あなたは、どれにもっとも近いとお考えになりますか</label>
+		    <div align="center">
+		      {% for gender in form.q35 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+	    </div>
+		<div class="row">
+		  <h3>以降の質問は、左のサイトを見ながら考えてください</h3>
+		  <div class="well">
+	        <label class = "control-label">質問36_1: ホテルAを利用したいと思いますか？</label>
+		    <div align="center">
+		        {{ form.q36_1 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問36_2: 質問36_1で、そのように回答した理由を教えてください（サイト内のどの部分を見て、判断したのか詳しく記述してください。例1: 星による点数で立地の点数が高かったから。またレビューに〜〜〜という記述があったから）</label>
+		    <div align="center">
+		        {{ form.q36_2 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問37_1: ホテルBを利用したいと思いますか？</label>
+		    <div align="center">
+		        {{ form.q37_1 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問37_2: 質問37_1で、そのように回答した理由を教えてください</label>
+		    <div align="center">
+		        {{ form.q37_2 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問38_1: ホテルCを利用したいと思いますか？</label>
+		    <div align="center">
+		        {{ form.q38_1 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問38_2: 質問38_1で、そのように回答した理由を教えてください</label>
+		    <div align="center">
+		        {{ form.q38_2 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問39_1: ホテルDを利用したいと思いますか？</label>
+		    <div align="center">
+		        {{ form.q39_1 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問39_2: 質問39_1で、そのように回答した理由を教えてください</label>
+		    <div align="center">
+		        {{ form.q39_2 }}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問40: どのホテルに一番泊まりたいですか？</label>
+		    <div align="center">
+		      {% for gender in form.q40 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問41: どのホテルに一番泊まりたくないですか？</label>
+		    <div align="center">
+		      {% for gender in form.q41 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問42_1: サイト内の星はホテルを決める上で参考になったと思いますか？</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {% for gender in form.q42_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問42_2: サイト内のホテルのポイントはホテルを決める上で参考になったと思いますか？</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {% for gender in form.q42_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問42_3: サイト内のレビューはホテルを決める上で参考になったと思いますか？</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {% for gender in form.q42_3 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+	    </div>
+      </div>
+      <input type="submit" value="アンケートを送信する">
+	  {% csrf_token %}
+    </form>
+  </div>
+{% endblock %}

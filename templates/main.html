@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>俺のためのページ</title>
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/jquery.fullPage.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="{% static 'js/jquery.easings.min.js' %}"></script>
+	<script src="{% static 'js/jquery.fullPage.min.js' %}"></script>
+	<script type="text/javascript">
+		(function ($) {
+			$(function () {
+				$('#fullpage').fullpage({
+					anchors: ['page'],
+					resize: false
+				});
+			});
+		})(jQuery);
+	</script>
+</head>
+<body>
+<header>
+	<div id="head-in" class="cf">
+		<h1>HOMEPAGE FOR MYSELF</h1>
+	</div>
+</header>
+<div id="fullpage">
+	<div class="section">
+		<div class="slide" data-anchor="slide1">
+			<div class="panel">
+				<h2>HOME</h2>
+				<p>このページは自身で実装したコードの動作を確認するためのページです</p>
+		    </div>
+		</div>
+		<div class="slide" data-anchor="slide2">
+			<div class="panel">
+				<h2>CODE MEMO</h2>
+				<p>
+					実装したコードのアルゴリズムの自分用メモです。 <br>
+					現在工事中
+				</p>
+			</div>
+		</div>
+		<div class="slide" data-anchor="slide3">
+			<div class="panel">
+				<h2>SUMMARIZATION</h2>
+				<p>
+					文書要約に関する実装をまとめています。<br>
+					精度の検証はしていません。
+				</p>
+				<p><a href="http://www.orenotame.com/summarization" rel="nofollow">文書要約</a></p>
+			</div>
+		</div>
+
+		<div class="slide" data-anchor="slide4">
+			<div class="panel">
+				<h2>OTHERS</h2>
+				<p>
+					他の種類の実装を順次追加していく予定です。<br>
+					現在工事中
+				</p>
+			</div>
+		</div>
+	</div>
+	<nav>
+		<li><a href="#page/slide1">HOME</a></li>
+		<li><a href="#page/slide2">CODE MEMO</a></li>
+		<li><a href="#page/slide3">SUMMARIZATION</a></li>
+		<li><a href="#page/slide4">OTHERS</a></li>
+	</nav>
+</div>

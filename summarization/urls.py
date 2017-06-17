@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^forms/$', views.hello_forms, name='hello_forms'),
     url(r'^summarize/$', views.summarize, name='summarize'),
     url(r'^summarize2/$', views.summarize2, name='summarize2'),
+    url(r'^20160122/$', views.movie, name='movie'),
 ]

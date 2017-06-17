@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}同意確認{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+   <h3 class="page-header">実験内容</h3>
+   <div id='container'>
+	 <div>この度は忙しい中、実験に参加していただき、ありがとうございます。</div>
+	 <div>実験に参加していただく前に、まずは下の文をよくお読みください。</div>
+	<h4>【本実験の目的と内容】</h4>
+	<div>本実験はECサイトを読む際のユーザービリティーのチェックを目的としています。</div>
+	<br>
+	<div>以降のページでは、ホテルA、ホテルB、ホテルC、ホテルDの評価を読み、アンケートに答えていただきます。</div>
+	<br>
+	<div><font color="red">アンケートページに移動したら、まずアンケート最下部の「アンケートを送信する」ボタンが表示されているか確認してください</font></div>
+	<div><font color="red">表示されていない場合は、再度ページの読み込みを行ってください</font></div>
+  <img src="/static/img/intro/intro3.png" class="img-responsive" width="300"/>
+	<div>アンケートに記入し終わったら、「アンケートを送信する」をクリックしてください。</div>
+	<br>
+	<h4>【注意事項】</h4>
+	<div>アンケートはPCでの回答を推奨しています。</div>
+	<div>ブラウザは全画面表示にしてください。</div>
+	<div>ブラウザはGoogle chrome, Firefox, Safariの利用を推奨しています。</div>
+	<h4>【プライバシーの保護について】</h4>
+	<div>本実験では、個人が特定されるようなデータ収集は行いません。</div>
+	<div>皆様の回答はすべて暗号化し、サーバーに保存されます。</div>
+	<div>また個人のデータを取り出して分析されることはありません。</div>
+<br>
+	<h4>【謝金について】</h4>
+	<div>本実験は10分程度を目安としており、謝金として、100円を支払わせていただきます。</div>
+	<br>
+	<h4>【調査責任者連絡先】</h4>
+	<div>東京大学工学系研究科</div>
+	<div>池上　顕真</div>
+	<div>e-mail: kenchin110100[at]gmail.com</div>
+	<br>
+<br>
+<div>本実験の趣旨を理解し、参加に同意いただける場合は、「先に進む」をクリックしてください。</div>
+{{form.errors}}
+<form class="form-horizontal" method="post" action="">
+<div align="center"><input type="submit" value="同意して先に進む"></div>
+	  {% csrf_token %}
+	</form>
+</div>
+{% endblock %}

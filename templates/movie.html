@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"ja" }}">
+
+<head>
+
+<meta charset="UTF-8">
+<title>{% block title %}20160123{% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+
+<body>
+
+<video width="640"  height="360" src="http://www.youtube.com/demo/google_main.mp4"  controls autobuffer autoplay> 
+</video> 
+
+<video width="640" height="360" controls>
+	<source src="/var/www/cgi-bin/test_proj/movie/mirai_s.iphone5.mp4">
+	<source src="/var/www/cgi-bin/test_proj/movie/mirai.webmhd.webm">
+</video>
+</body>
+</html>

@@ -76,7 +76,7 @@ class InputForm2(forms.Form):
         label='イプシロン',
         required=True,
         widget=forms.TextInput(),
-        initial=0.5
+        initial=0.7
     )
 
     limit_sentence_num = forms.IntegerField(

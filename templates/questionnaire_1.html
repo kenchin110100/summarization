@@ -1,0 +1,1029 @@
+{% extends "base.html" %}
+
+{% block title %}アンケート1{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+  <h3 class="page-header">QUESTIONNAIRE</h3>
+  <div class="container">
+	  <div>「アンケートを送信する」ボタンがうまく表示されていない場合があります</div>
+	  <div>表示されているか確認を行い、表示されていない場合はページの再読み込みを行ってください</div>
+	  <font size="5" color="#ff0000">{{message}}</font>
+	  {{form.errors}}
+    <form class="form-horizontal" method="post" action="">
+      <div class="form-qroup">
+		<div class="well">
+        <label>ランサーズでのユーザー名を入力してください</label>
+		  <div>{{form.user_name}}</div>
+		</div>
+		<div class="row">
+		  <h3>タイプ1とタイプ4の比較をしてください</h3>
+		  <div class="well">
+	        <label class = "control-label">質問1: このタイプは十分にユーザーのことを考えて設計されていると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q1_1.label}}
+		      {% for gender in form.q1_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q1_2.label}}
+		      {% for gender in form.q1_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問2: このタイプの文章は読みやすい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q2_1.label}}
+		      {% for gender in form.q2_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q2_2.label}}
+		      {% for gender in form.q2_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問3: このタイプを利用していると目が疲れる感じがする</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q3_1.label}}
+		      {% for gender in form.q3_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q3_2.label}}
+		      {% for gender in form.q3_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問4: このタイプは見たい情報を簡単に探すことができる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q4_1.label}}
+		      {% for gender in form.q4_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q4_2.label}}
+		      {% for gender in form.q4_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問5: このタイプの情報提示の方法は分かりやすい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q5_1.label}}
+		      {% for gender in form.q5_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q5_2.label}}
+		      {% for gender in form.q5_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問6: このタイプの情報は分かりやすく述べられている</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q6_1.label}}
+		      {% for gender in form.q6_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q6_2.label}}
+		      {% for gender in form.q6_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問7: このタイプは分かりやすく情報が整理されている</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q7_1.label}}
+		      {% for gender in form.q7_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q7_2.label}}
+		      {% for gender in form.q7_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問8: ホテルを決めるのに欲しい情報を取得することができた</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q8_1.label}}
+		      {% for gender in form.q8_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q8_2.label}}
+		      {% for gender in form.q8_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問9: このタイプの内容は理解しやすい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q9_1.label}}
+		      {% for gender in form.q9_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q9_2.label}}
+		      {% for gender in form.q9_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問10: このタイプにはわからない言葉がたくさん出てくる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q10_1.label}}
+		      {% for gender in form.q10_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q10_2.label}}
+		      {% for gender in form.q10_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問11: このタイプに提示されている情報は有用なものである</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q11_1.label}}
+		      {% for gender in form.q11_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q11_2.label}}
+		      {% for gender in form.q11_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問12: このタイプはユーザーに偏見を与えると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q12_1.label}}
+		      {% for gender in form.q12_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q12_2.label}}
+		      {% for gender in form.q12_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問13: このタイプはホテルを決めるのに役立つと思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q13_1.label}}
+		      {% for gender in form.q13_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q13_2.label}}
+		      {% for gender in form.q13_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問14: このタイプはホテルに関する情報を十分に提供していると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q14_1.label}}
+		      {% for gender in form.q14_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q14_2.label}}
+		      {% for gender in form.q14_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問15: このタイプを用いて正しい選択ができると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q15_1.label}}
+		      {% for gender in form.q15_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q15_2.label}}
+		      {% for gender in form.q15_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問16: このタイプを利用するのは時間の浪費である</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q16_1.label}}
+		      {% for gender in form.q16_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q16_2.label}}
+		      {% for gender in form.q16_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問17: このタイプの構成には一貫性があると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q17_1.label}}
+		      {% for gender in form.q17_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q17_2.label}}
+		      {% for gender in form.q17_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問18: このタイプではホテルのサービスの内容がよく記述されている</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q18_1.label}}
+		      {% for gender in form.q18_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q18_2.label}}
+		      {% for gender in form.q18_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問19: このタイプの記述ではホテルを選択するのが難しい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q19_1.label}}
+		      {% for gender in form.q19_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q19_2.label}}
+		      {% for gender in form.q19_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問20: このタイプの内容を満足に理解することができた</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q20_1.label}}
+		      {% for gender in form.q20_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q20_2.label}}
+		      {% for gender in form.q20_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問21: このタイプが提示した情報に満足した</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q21_1.label}}
+		      {% for gender in form.q21_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q21_2.label}}
+		      {% for gender in form.q21_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問22: このタイプは印象に残る</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q22_1.label}}
+		      {% for gender in form.q22_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q22_2.label}}
+		      {% for gender in form.q22_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問23: このタイプの提示方法は親しみがわく</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q23_1.label}}
+		      {% for gender in form.q23_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q23_2.label}}
+		      {% for gender in form.q23_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問24: このタイプは魅力的な情報を提示している</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q24_1.label}}
+		      {% for gender in form.q24_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q24_2.label}}
+		      {% for gender in form.q24_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問25: このタイプが提供している情報を信用できる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q25_1.label}}
+		      {% for gender in form.q25_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q25_2.label}}
+		      {% for gender in form.q25_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問26: このタイプには嘘の内容が含まれていると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q26_1.label}}
+		      {% for gender in form.q26_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q26_2.label}}
+		      {% for gender in form.q26_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問27: このタイプはホテル選びに悪影響を与える</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q27_1.label}}
+		      {% for gender in form.q27_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q27_2.label}}
+		      {% for gender in form.q27_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問28: このタイプの文章表現は適切である</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q28_1.label}}
+		      {% for gender in form.q28_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q28_2.label}}
+		      {% for gender in form.q28_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問29: このタイプを通じて選んだホテルに対して信頼が持てる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q29_1.label}}
+		      {% for gender in form.q29_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q29_2.label}}
+		      {% for gender in form.q29_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問30: このタイプのウェブサイトを使用するのに抵抗がない</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q30_1.label}}
+		      {% for gender in form.q30_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q30_2.label}}
+		      {% for gender in form.q30_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問31: このタイプには統一感がある</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q31_1.label}}
+		      {% for gender in form.q31_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q31_2.label}}
+		      {% for gender in form.q31_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+	    </div>
+		<div class="row">
+		  <h3>タイプ2とタイプ3の比較をしてください</h3>
+		  <div class="well">
+	        <label class = "control-label">質問1: このタイプは十分にユーザーのことを考えて設計されていると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q32_1.label}}
+		      {% for gender in form.q32_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q32_2.label}}
+		      {% for gender in form.q32_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問2: このタイプの文章は読みやすい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q33_1.label}}
+		      {% for gender in form.q33_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q33_2.label}}
+		      {% for gender in form.q33_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問3: このタイプを利用していると目が疲れる感じがする</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q34_1.label}}
+		      {% for gender in form.q34_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q34_2.label}}
+		      {% for gender in form.q34_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問4: このタイプは見たい情報を簡単に探すことができる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q35_1.label}}
+		      {% for gender in form.q35_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q35_2.label}}
+		      {% for gender in form.q35_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問5: このタイプの情報提示の方法は分かりやすい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q36_1.label}}
+		      {% for gender in form.q36_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q36_2.label}}
+		      {% for gender in form.q36_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問6: このタイプの情報は分かりやすく述べられている</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q37_1.label}}
+		      {% for gender in form.q37_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q37_2.label}}
+		      {% for gender in form.q37_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問7: このタイプは分かりやすく情報が整理されている</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q38_1.label}}
+		      {% for gender in form.q38_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q38_2.label}}
+		      {% for gender in form.q38_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問8: ホテルを決めるのに欲しい情報を取得することができた</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q39_1.label}}
+		      {% for gender in form.q39_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q39_2.label}}
+		      {% for gender in form.q39_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問9: このタイプの内容は理解しやすい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q40_1.label}}
+		      {% for gender in form.q40_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q40_2.label}}
+		      {% for gender in form.q40_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問10: このタイプにはわからない言葉がたくさん出てくる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q41_1.label}}
+		      {% for gender in form.q41_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q41_2.label}}
+		      {% for gender in form.q41_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問11: このタイプに提示されている情報は有用なものである</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q42_1.label}}
+		      {% for gender in form.q42_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q42_2.label}}
+		      {% for gender in form.q42_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問12: このタイプはユーザーに偏見を与えると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q43_1.label}}
+		      {% for gender in form.q43_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q43_2.label}}
+		      {% for gender in form.q43_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問13: このタイプはホテルを決めるのに役立つと思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q44_1.label}}
+		      {% for gender in form.q44_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q44_2.label}}
+		      {% for gender in form.q44_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問14: このタイプはホテルに関する情報を十分に提供していると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q45_1.label}}
+		      {% for gender in form.q45_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q45_2.label}}
+		      {% for gender in form.q45_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問15: このタイプを用いて正しい選択ができると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q46_1.label}}
+		      {% for gender in form.q46_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q46_2.label}}
+		      {% for gender in form.q46_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問16: このタイプを利用するのは時間の浪費である</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q47_1.label}}
+		      {% for gender in form.q47_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q47_2.label}}
+		      {% for gender in form.q47_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問17: このタイプの構成には一貫性があると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q48_1.label}}
+		      {% for gender in form.q48_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q48_2.label}}
+		      {% for gender in form.q48_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問18: このタイプではホテルのサービスの内容がよく記述されている</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q49_1.label}}
+		      {% for gender in form.q49_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q49_2.label}}
+		      {% for gender in form.q49_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問19: このタイプの記述ではホテルを選択するのが難しい</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q50_1.label}}
+		      {% for gender in form.q50_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q50_2.label}}
+		      {% for gender in form.q50_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問20: このタイプの内容を満足に理解することができた</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q51_1.label}}
+		      {% for gender in form.q51_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q51_2.label}}
+		      {% for gender in form.q51_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問21: このタイプが提示した情報に満足した</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q52_1.label}}
+		      {% for gender in form.q52_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q52_2.label}}
+		      {% for gender in form.q52_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問22: このタイプは印象に残る</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q53_1.label}}
+		      {% for gender in form.q53_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q53_2.label}}
+		      {% for gender in form.q53_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問23: このタイプの提示方法は親しみがわく</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q54_1.label}}
+		      {% for gender in form.q54_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q54_2.label}}
+		      {% for gender in form.q54_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問24: このタイプは魅力的な情報を提示している</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q55_1.label}}
+		      {% for gender in form.q55_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q55_2.label}}
+		      {% for gender in form.q55_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問25: このタイプが提供している情報を信用できる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q56_1.label}}
+		      {% for gender in form.q56_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q56_2.label}}
+		      {% for gender in form.q56_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問26: このタイプには嘘の内容が含まれていると思う</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q57_1.label}}
+		      {% for gender in form.q57_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q57_2.label}}
+		      {% for gender in form.q57_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問27: このタイプはホテル選びに悪影響を与える</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q58_1.label}}
+		      {% for gender in form.q58_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q58_2.label}}
+		      {% for gender in form.q58_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問28: このタイプの文章表現は適切である</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q59_1.label}}
+		      {% for gender in form.q59_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q59_2.label}}
+		      {% for gender in form.q59_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問29: このタイプを通じて選んだホテルに対して信頼が持てる</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q60_1.label}}
+		      {% for gender in form.q60_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q60_2.label}}
+		      {% for gender in form.q60_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問30: このタイプのウェブサイトを使用するのに抵抗がない</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q61_1.label}}
+		      {% for gender in form.q61_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q61_2.label}}
+		      {% for gender in form.q61_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+		  <div class="well">
+	        <label class = "control-label">質問31: このタイプには統一感がある</label>
+		    <div align="center">&larr;思わない&emsp;思う&rarr;</div>
+		    <div align="center">
+		      {{form.q62_1.label}}
+		      {% for gender in form.q62_1 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		    <div align="center">
+		      {{form.q62_2.label}}
+		      {% for gender in form.q62_2 %}
+		        {{ gender }}
+	          {% endfor %}
+		    </div>
+		  </div>
+	    </div>
+      </div>
+      <input type="submit" value="アンケートを送信する">
+	  {% csrf_token %}
+    </form>
+  </div>
+{% endblock %}

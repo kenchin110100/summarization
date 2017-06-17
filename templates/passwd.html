@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}アンケート終了{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+	  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+   <h3 class="page-header">ご協力ありがとうございました</h3>
+   <div id='container'>
+	 <div>お疲れ様でした、以上で実験は終了となります</div>
+     <div>本実験の目的は、レビューの要約がユーザーに与える影響を評価することでした</div>
+	 <div>本実験では、個人が特定されるような分析は行いません</div>
+	 <br>
+	 <div>支払いコードは</div>
+	 <br>
+	 <font size=8>{{ passwd }}</font>
+	 </br>
+	 <div>です</div>
+	 <div>このコードは、必ずメモするか、コピーペーストで保存してください</div>
+	 <div>謝金を支払う際に必要となります</div>
+	 <div>支払いコードのメモが終了したら、ページを閉じてください</div>
+   </div>
+{% endblock %}

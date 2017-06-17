@@ -11,7 +11,10 @@ from functions.filer import Filer
 
 def home(request):
     d = {
-        'summarize': 'http://www.orenotame.com/summarization/summarize'
+        'summarize': 'http://www.orenotame.com/summarization/summarize',
+        'summarize2': 'http://www.orenotame.com/summarization/summarize2',
+        'summarize_date': '2015/12/31',
+        'summarize2_date': '2016/01/05',
     }
     return render(request, 'index.html', d)
 
@@ -110,3 +113,6 @@ def summarize2(request):
             'message': message,
         }
         return render(request, 'forms2.html', d)
+
+def movie(request):
+    return render(request, 'movie.html')
